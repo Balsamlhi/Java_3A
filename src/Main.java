@@ -1,15 +1,39 @@
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        SocieteArrayList societe = new SocieteArrayList();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Employe e1 = new Employe(3, "Ali", "Hamdi", "Informatique", 2);
+        Employe e2 = new Employe(1, "Sami", "Amine", "Ressources Humaines", 1);
+        Employe e3 = new Employe(2, "Lina", "Meriem", "Informatique", 1);
+
+        societe.ajouterEmploye(e1);
+        societe.ajouterEmploye(e2);
+        societe.ajouterEmploye(e3);
+
+        societe.displayEmploye();
+
+        System.out.println("**********");
+        // Tri par ID
+        societe.trierEmployeParId();
+        societe.displayEmploye();
+        System.out.println("**********");
+        societe.trierEmployeParNomDépartementEtGrade();
+        societe.displayEmploye();
+
+
+        societe.rechercherEmploye("Ali");
+        societe.supprimerEmploye(e2);
+        societe.displayEmploye();
+
+        List<Employe> infoDept = societe.rechercherParDepartement("Informatique");
+        System.out.println("Employés du département Informatique :");
+        for (Employe e : infoDept) {
+            System.out.println(e);
         }
+
     }
 }

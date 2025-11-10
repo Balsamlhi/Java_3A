@@ -2,8 +2,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
-public class SocieteArrayList implements IGestion<Employe> {
+public class SocieteArrayList implements IGestion<Employe>, IRechercheAvancee<Employe> {
     ArrayList<Employe> listeEmployes;
 
     public SocieteArrayList() {
@@ -59,5 +60,17 @@ public class SocieteArrayList implements IGestion<Employe> {
                 .thenComparingInt(Employe::getGrade)
                 .thenComparing(Employe::getNom));
         System.out.println("Liste triée par departement,Grade,puis Nom");
+    }
+
+    @Override
+    public List<Employe> rechercherParDepartement(String nomDepartement) {
+        List<Employe> listeDepartements = new ArrayList<>();
+        for (Employe e : listeEmployes) {
+
+            if (e.getNomDepartement().equals(nomDepartement)) {
+                listeDepartements.add(e);
+            }
+        }
+        return listeDepartements;
     }
 }
