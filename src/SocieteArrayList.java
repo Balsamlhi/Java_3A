@@ -38,11 +38,12 @@ public class SocieteArrayList implements IGestion<Employe> {
         listeEmployes.remove(employe);
 
     }
-    public void displayEmploye(Employe employe) {
+
+    @Override
+    public void displayEmploye() {
         for (Employe e : listeEmployes) {
             System.out.println(e);
         }
-
     }
 
     @Override
